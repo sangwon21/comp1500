@@ -14,7 +14,7 @@ namespace Assignment1
             {
                 int number = int.Parse(input.ReadLine());
 
-                string strHex = Convert.ToString(number, 16);
+                string strHex = string.Format("{0:X}", number);
                 string strOct = Convert.ToString(number, 8);
 
                 output.Write("{0, 12}", strOct);
