@@ -17,7 +17,9 @@ namespace Assignment1
                 string strHex = Convert.ToString(number, 16);
                 string strOct = Convert.ToString(number, 8);
 
-                output.WriteLine("{0, 12} {1, 10} {2, 8}", strOct, number, strHex);
+                output.Write("{0, 12}", strOct);
+                output.Write("{0, 11}", number);
+                output.WriteLine("{0, 9}", strHex);
             }
         }
 

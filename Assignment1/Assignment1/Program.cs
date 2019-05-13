@@ -15,8 +15,8 @@ namespace Assignment1
                 Console.WriteLine("Enter your 5 digits for PrintIntegers():");
                 Assignment1.PrintIntegers(READER, WRITER);
 
-                Console.WriteLine("Enter your 5 digits for PrintStats():");
-                Assignment1.PrintStats(READER, WRITER);
+                //Console.WriteLine("Enter your 5 digits for PrintStats():");
+                //Assignment1.PrintStats(READER, WRITER);
             }
         }
     }
