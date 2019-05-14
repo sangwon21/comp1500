@@ -12,13 +12,14 @@ namespace Assignment1
 
             for (int i = 0; i < 5; i++)
             {
-                int number = int.Parse(input.ReadLine());
+                uint number = uint.Parse(input.ReadLine());
 
                 string strHex = string.Format("{0:X}", number);
+                string strDec = string.Format("{0}", number);
                 string strOct = Convert.ToString(number, 8);
 
                 output.Write("{0, 12}", strOct);
-                output.Write("{0, 11}", number);
+                output.Write("{0, 11}", strDec);
                 output.WriteLine("{0, 9}", strHex);
             }
         }
