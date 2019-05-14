@@ -12,7 +12,7 @@ namespace Assignment1
 
             for (int i = 0; i < 5; i++)
             {
-                uint number = uint.Parse(input.ReadLine());
+                long number = long.Parse(input.ReadLine());
 
                 string strHex = string.Format("{0:X}", number);
                 string strDec = string.Format("{0}", number);
