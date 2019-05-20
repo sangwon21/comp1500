@@ -24,7 +24,7 @@ namespace Lab3
 
             double totalPrice = sum + tax + tip;
 
-            totalPrice = (totalPrice * 1000 + 0.5) / 1000;
+            totalPrice = (totalPrice * 100 + 0.5) / 100;
 
             totalPrice = Math.Truncate(totalPrice * 100) / 100;
 
@@ -33,7 +33,15 @@ namespace Lab3
 
         public static double CalculateIndividualCost(StreamReader input, double totalCost)
         {
-            return 0;
+            int people = int.Parse(input.ReadLine());
+
+            totalCost = totalCost / people;
+
+            totalCost = (totalCost * 100 + 0.5) / 100;
+
+            totalCost = Math.Truncate(totalCost * 100) / 100;
+
+            return totalCost;
         }
 
         public static uint CalculatePayerCount(StreamReader input, double totalCost)

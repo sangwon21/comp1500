@@ -23,9 +23,11 @@ namespace Lab3
             using (StreamReader reader3 = new StreamReader(new MemoryStream(buffer3)))
             {
                 double totalCost = RestaurantBillCalculator.CalculateTotalCost(reader1);
-
                 Debug.Assert(totalCost == 433.08);
 
+                double individualCost = RestaurantBillCalculator.CalculateIndividualCost(reader2, totalCost);
+                Console.WriteLine(individualCost);
+                Debug.Assert(individualCost == 54.14);
             }
         }
     }
