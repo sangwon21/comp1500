@@ -8,7 +8,7 @@ namespace Lab3
         public static double CalculateTotalCost(StreamReader input)
         {
             double sum = 0.0;
-            for(int i = 0; i < 5; i++)
+            for (int i = 0; i < 5; i++)
             {
                 string foodPrice = input.ReadLine(); // 사용자가 정수를 입력
                 double price = double.Parse(foodPrice);
@@ -48,7 +48,7 @@ namespace Lab3
         {
             double perPrice = double.Parse(input.ReadLine());
 
-            if(totalCost % perPrice == 0)
+            if (totalCost % perPrice == 0)
             {
                 return (uint)(totalCost / perPrice);
             }
