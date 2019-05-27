@@ -14,6 +14,11 @@
 
         public static int GetDaysInMonth(uint year, uint month)
         {
+            if (year > 9999)
+            {
+                return -1;
+            }
+
             if (IsLeapYear(year) && month == 2)
             {
                 return 29;
@@ -22,12 +27,7 @@
             {
                 return 28;
             }
-
-            if (year > 9999)
-            {
-                return -1;
-            }
-
+                      
             switch (month)
             {
                 case 1:

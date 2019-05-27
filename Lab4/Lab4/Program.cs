@@ -26,6 +26,9 @@ namespace Lab4
             Debug.Assert(Calendar.GetDaysInMonth(2019, 2) == 28);
             Debug.Assert(Calendar.GetDaysInMonth(1996, 8) == 31);
             Debug.Assert(Calendar.GetDaysInMonth(1999, 9) == 30);
+
+            Debug.Assert(Calendar.GetDaysInMonth(12000, 12) == -1);  // -1
+            Debug.Assert(Calendar.GetDaysInMonth(9999, 12) == 31); // -1
         }
     }
 }
