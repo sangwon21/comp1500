@@ -4,7 +4,7 @@
     {
         public static bool IsLeapYear(uint year)
         {
-            if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
+            if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
             {
                 return true;
             }
@@ -14,16 +14,21 @@
 
         public static int GetDaysInMonth(uint year, uint month)
         {
-            if(IsLeapYear(year) && month == 2)
+            if (IsLeapYear(year) && month == 2)
             {
                 return 29;
             }
-            else if(IsLeapYear(year) == false && month == 2)
+            else if (IsLeapYear(year) == false && month == 2)
             {
                 return 28;
             }
 
-            switch(month)
+            if (year > 9999)
+            {
+                return -1;
+            }
+
+            switch (month)
             {
                 case 1:
                 case 3:
