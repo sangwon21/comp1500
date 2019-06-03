@@ -117,7 +117,29 @@ namespace Lab5
 
         public static double CalculateTotalRevenue(double[] revenuePerDay, uint start, uint end)
         {
-            return 0.0;
+            if(start > end)
+            {
+                return -1.0;
+            }
+
+            if(end > revenuePerDay.Length - 1)
+            {
+                return -1.0;
+            }
+
+            double sum = 0.0;
+
+            for(uint i = start;i <= end; i++)
+            {
+                sum += revenuePerDay[i];
+            }
+
+            if(sum == 0.0)
+            {
+                sum = -1.0;
+            }
+
+            return sum;
         }
     }
 }

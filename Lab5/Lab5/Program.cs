@@ -32,7 +32,14 @@ namespace Lab5
             numInvalidEntries = Lab5.GetInvalidEntryCount(usersPerDay, revenuePerDay);
             Debug.Assert(numInvalidEntries == 3);
 
+            double totalRevenue = Lab5.CalculateTotalRevenue(revenuePerDay, 0, 5);
+            Debug.Assert(totalRevenue == 10275.2);
 
+            totalRevenue = Lab5.CalculateTotalRevenue(revenuePerDay, 10, 14);
+            Debug.Assert(totalRevenue == 890481.09);
+
+            totalRevenue = Lab5.CalculateTotalRevenue(revenuePerDay, 0, 14);
+            Debug.Assert(totalRevenue == 924657.79);
         }
     }
 }
