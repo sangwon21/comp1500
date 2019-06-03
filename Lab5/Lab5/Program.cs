@@ -21,6 +21,18 @@ namespace Lab5
 
             bFixed = Lab5.TryFixData(usersPerDay, revenuePerDay);
             Debug.Assert(bFixed);
+
+            int numInvalidEntries = Lab5.GetInvalidEntryCount(usersPerDay, revenuePerDay);
+            Debug.Assert(numInvalidEntries == 0);
+
+            revenuePerDay[0] = 10000.2;
+            revenuePerDay[6] = 156;
+            revenuePerDay[11] = 45628.34;
+
+            numInvalidEntries = Lab5.GetInvalidEntryCount(usersPerDay, revenuePerDay);
+            Debug.Assert(numInvalidEntries == 3);
+
+
         }
     }
 }
