@@ -38,6 +38,20 @@
                     }
                 }
             }
+
+            else if (mode == EMode.VerticalMirror)
+            {
+                for (int i = 0; i < row / 2; i++)
+                {
+                    for (int j = 0; j < column; j++)
+                    {
+                        int tmp = data[(row - 1) - i, j];
+                        data[(row - 1) - i, j] = data[i, j];
+                        data[i, j] = tmp;
+
+                    }
+                }
+            }
         }
 
     }
