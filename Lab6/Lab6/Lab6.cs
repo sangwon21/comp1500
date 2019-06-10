@@ -55,7 +55,7 @@
 
             else if (mode == EMode.DiagonalShift)
             {
-                for(int i = column - 1; i > 0; i--)
+                for (int i = column - 1; i > 0; i--)
                 {
                     int tmp = data[0, i];
                     data[0, i] = data[0, (i + 1) % column];
@@ -70,7 +70,7 @@
                         data[i, (j + 1) % column] = tmp;
                     }
 
-                    for(int j = 0; j < column; j++)
+                    for (int j = 0; j < column; j++)
                     {
                         int tmp = data[i, j];
                         data[i, j] = data[(i + 1) % row, j];
