@@ -19,5 +19,26 @@
 
             return newVector;
         }
+
+        public static void TransformArray(int[,] data, EMode mode)
+        {
+            int row = data.GetLength(0);
+            int column = data.GetLength(1);
+
+            if (mode == EMode.HorizontalMirror)
+            {
+                for (int i = 0; i < row; i++)
+                {
+                    for (int j = 0; j < column / 2; j++)
+                    {
+                        int tmp = data[i, (column - 1) - j];
+                        data[i, (column - 1) - j] = data[i, j];
+                        data[i, j] = tmp;
+
+                    }
+                }
+            }
+        }
+
     }
 }

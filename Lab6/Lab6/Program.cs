@@ -11,6 +11,9 @@ namespace Lab6
             int[,] rotated = Lab6.Rotate90Degrees(data);
             printArray(rotated);
 
+            Lab6.TransformArray(data, EMode.HorizontalMirror);
+            printArray(data);
+
         }
 
         private static int[,] getTestArray()
