@@ -19,6 +19,11 @@ namespace Lab6
             Lab6.TransformArray(data, EMode.VerticalMirror);
             printArray(data);
 
+            data = getTestArray();
+
+            Lab6.TransformArray(data, EMode.DiagonalShift);
+            printArray(data);
+
         }
 
         private static int[,] getTestArray()
