@@ -4,37 +4,37 @@
     {
         public static bool PlayGame(uint[] array)
         {
-            if (array.Length == 0 || array.Length == 1)
+            if (array.Length <= 1)
             {
                 return false;
             }
-            return HelpGame(array, (long)array[0], 0, 2);
+
+            bool[] bArray = new bool[array.Length];
+
+            return HelpGame(array, (int)array[0], bArray);
         }
 
-        public static bool HelpGame(uint[] array, long currentIndex, long previousIndex, int plusMinus)
+        public static bool HelpGame(uint[] array, int currentIndex, bool[] bArray)
         {
             if (currentIndex <= 0 || currentIndex >= array.Length)
             {
                 return false;
             }
 
-            if (array[currentIndex] == 0)
+            if (currentIndex == (long)array.Length - 1)
             {
                 return true;
             }
 
-            if (plusMinus == 0 && array[currentIndex] == array[previousIndex])
+            if(bArray[currentIndex] == true)
             {
-                return HelpGame(array, currentIndex + (long)array[currentIndex], currentIndex, 0);
+                return false;
             }
 
-            if (plusMinus == 1 && array[currentIndex] == array[previousIndex])
-            {
-                return HelpGame(array, currentIndex - (long)array[currentIndex], currentIndex, 1);
-            }
+            bArray[currentIndex] = true;
 
-
-            return HelpGame(array, currentIndex + (long)array[currentIndex], currentIndex, 0) || HelpGame(array, currentIndex - (long)array[currentIndex], currentIndex, 1);
+            
+            return HelpGame(array, currentIndex + (int)array[currentIndex], bArray) || HelpGame(array, currentIndex - (int)array[currentIndex], bArray);
         }
     }
 }
