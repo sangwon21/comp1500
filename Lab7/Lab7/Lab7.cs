@@ -8,10 +8,10 @@
             {
                 return false;
             }
-            return Helper(array, (int)array[0], 0, 2);
+            return HelpGame(array, (long)array[0], 0, 2);
         }
 
-        public static bool Helper(uint[] array, int currentIndex, int previousIndex, int plusMinus)
+        public static bool HelpGame(uint[] array, long currentIndex, long previousIndex, int plusMinus)
         {
             if (currentIndex <= 0 || currentIndex >= array.Length)
             {
@@ -25,16 +25,16 @@
 
             if (plusMinus == 0 && array[currentIndex] == array[previousIndex])
             {
-                return Helper(array, currentIndex + (int)array[currentIndex], currentIndex, 0);
+                return HelpGame(array, currentIndex + (long)array[currentIndex], currentIndex, 0);
             }
 
             if (plusMinus == 1 && array[currentIndex] == array[previousIndex])
             {
-                return Helper(array, currentIndex - (int)array[currentIndex], currentIndex, 1);
+                return HelpGame(array, currentIndex - (long)array[currentIndex], currentIndex, 1);
             }
 
 
-            return Helper(array, currentIndex + (int)array[currentIndex], currentIndex, 0) || Helper(array, currentIndex - (int)array[currentIndex], currentIndex, 1);
+            return HelpGame(array, currentIndex + (long)array[currentIndex], currentIndex, 0) || HelpGame(array, currentIndex - (long)array[currentIndex], currentIndex, 1);
         }
     }
 }
