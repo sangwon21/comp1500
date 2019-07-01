@@ -26,14 +26,14 @@
                 return true;
             }
 
-            if(bArray[currentIndex] == true)
+            if (bArray[currentIndex] == true)
             {
                 return false;
             }
 
             bArray[currentIndex] = true;
 
-            
+
             return HelpGame(array, currentIndex + (int)array[currentIndex], bArray) || HelpGame(array, currentIndex - (int)array[currentIndex], bArray);
         }
     }
