@@ -23,12 +23,17 @@ namespace Assignment3
 
         public static List<List<int>[]> SolveTowerOfHanoi(int numDiscs)
         {
+            if (numDiscs <= 0)
+            {
+                return new List<List<int>[]>();
+            }
+
             List<List<int>[]> list = new List<List<int>[]>();
             List<int> first = new List<int>(numDiscs);
             List<int> second = new List<int>(numDiscs);
             List<int> third = new List<int>(numDiscs);
 
-            for(int i = numDiscs; i > 0; i--)
+            for (int i = numDiscs; i > 0; i--)
             {
                 first.Add(i);
             }
@@ -41,18 +46,18 @@ namespace Assignment3
 
             list.Add(array);
 
-            hanoi( list, numDiscs, 0, 1, 2);
+            Move(list, numDiscs, 0, 1, 2);
 
             return list;
         }
 
-        public static void hanoi( List<List<int>[]> list, int n, int from, int by,int to)
+        public static void Move(List<List<int>[]> list, int n, int from, int by, int to)
         {
             if (n == 0)
             {
                 return;
             }
-            hanoi( list, n - 1, from, to, by);
+            Move(list, n - 1, from, to, by);
 
             List<int>[] newList = new List<int>[3];
             List<int> first = new List<int>(list[list.Count - 1][0]);
@@ -72,7 +77,7 @@ namespace Assignment3
 
             list.Add(newList);
 
-            hanoi( list, n - 1, by, from, to);
+            Move(list, n - 1, by, from, to);
 
         }
 
