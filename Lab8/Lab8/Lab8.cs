@@ -24,27 +24,27 @@ namespace Lab8
 
             string[] firstList = s.Split('|');
 
-            for(uint i = 0; i < firstList.Length; i++)
+            for (uint i = 0; i < firstList.Length; i++)
             {
                 builder.Append(firstIndex + ") ");
-                if(firstList[i].Contains('_') == false)
+                if (firstList[i].Contains('_') == false)
                 {
                     builder.AppendLine(firstList[i]);
                 }
-                else 
+                else
                 {
                     string[] secondList = firstList[i].Split('_');
                     char secondIndex = 'a';
                     builder.AppendLine(secondList[0]);
 
-                    for(uint j = 1; j < secondList.Length; j++)
+                    for (uint j = 1; j < secondList.Length; j++)
                     {
                         builder.Append("    " + secondIndex + ") ");
                         if (secondList[j].Contains('/'))
                         {
                             string[] thirdList = secondList[j].Split('/');
                             builder.AppendLine(thirdList[0]);
-                            for(uint k = 1; k < thirdList.Length; k++)
+                            for (uint k = 1; k < thirdList.Length; k++)
                             {
                                 builder.AppendLine("        " + "- " + thirdList[k]);
                             }
@@ -54,7 +54,7 @@ namespace Lab8
                             builder.AppendLine(secondList[j]);
                         }
                         secondIndex++;
-                    }                                        
+                    }
                 }
                 firstIndex++;
             }

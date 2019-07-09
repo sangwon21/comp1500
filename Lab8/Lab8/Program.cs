@@ -66,6 +66,12 @@ namespace Lab8
             minifiedList = "Apple///|Orange/asdf";
             list = Lab8.PrettifyList(minifiedList);
             Console.WriteLine(list);
+
+            minifiedList = "I go||to|POCU";
+            list = Lab8.PrettifyList(minifiedList);
+            Console.WriteLine(list);
+
+            Console.Write("end");
         }
     }
 }
