@@ -11,9 +11,9 @@ namespace Lab8
             {
                 return null;
             }
-            s = s.Trim();
+            string tmp = s.Trim();
 
-            if (s.Length == 0)
+            if (tmp.Length == 0)
             {
                 return null;
             }
