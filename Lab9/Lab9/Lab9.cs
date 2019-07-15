@@ -49,7 +49,16 @@ namespace Lab9
 
         public static Dictionary<string, int> CombineListsToDictionary(List<string> keys, List<int> values)
         {
-            return null;
+            int length = keys.Count > values.Count ? values.Count : keys.Count;
+
+            Dictionary<string, int> combinedDictionary = new Dictionary<string, int>(length);
+
+            for (int i = 0; i < length; i++)
+            {
+                combinedDictionary.TryAdd(keys[i], values[i]);
+            }
+
+            return combinedDictionary;
         }
 
         public static Dictionary<string, decimal> MergeDictionaries(Dictionary<string, int> numerators, Dictionary<string, int> denominators)

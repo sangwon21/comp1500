@@ -23,7 +23,40 @@ namespace Lab9
                 Debug.Assert(expectedList[i] == combinedList[i]);
             }
 
+            List<string> keys = new List<string> { "hello", "world", "comp1500", "intro", "to", "c#" };
+            List<int> values = new List<int> { 2, 5, 10, 40, -11, -50 };
+
+            Dictionary<string, int> dict = Lab9.CombineListsToDictionary(keys, values);
+            Dictionary<string, int> expectedDict = new Dictionary<string, int>
+            {
+                { "hello", 2 },
+                { "world", 5 },
+                { "comp1500", 10 },
+                { "intro", 40 },
+                { "to", -11 },
+                { "c#", -50 }
+            };
+
+            printDictionary(dict);
+
+            Debug.Assert(dict.Count == expectedDict.Count);
+
             Console.WriteLine("End of the Test");
+        }
+
+        private static void printDictionary<TKey, TValue>(Dictionary<TKey, TValue> dict)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append("[ ");
+
+            foreach (var keyvaluepair in dict)
+            {
+                sb.Append($"{{ {keyvaluepair.Key}, {keyvaluepair.Value} }}, ");
+            }
+
+            string s = sb.ToString().Trim().Trim(',');
+            Console.WriteLine($"{s} ]");
         }
     }
 }
