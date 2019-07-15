@@ -63,7 +63,28 @@ namespace Lab9
 
         public static Dictionary<string, decimal> MergeDictionaries(Dictionary<string, int> numerators, Dictionary<string, int> denominators)
         {
-            return null;
+            Dictionary<string, decimal> mergedDicionary = new Dictionary<string, decimal>();
+
+            if (numerators.Count == 0 || denominators.Count == 0)
+            {
+                return mergedDicionary;
+            }
+
+            foreach (var pair in denominators)
+            {
+                if (numerators.ContainsKey(pair.Key) == true && pair.Value != 0)
+                {
+                    decimal result = numerators[pair.Key] / (decimal)pair.Value;
+                    if (result < 0)
+                    {
+                        result *= -1;
+                    }
+
+                    mergedDicionary.Add(pair.Key, result);
+                }
+            }
+
+            return mergedDicionary;
         }
     }
 }

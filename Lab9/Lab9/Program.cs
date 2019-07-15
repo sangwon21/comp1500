@@ -1,5 +1,4 @@
 ﻿using System;
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
@@ -41,7 +40,47 @@ namespace Lab9
 
             Debug.Assert(dict.Count == expectedDict.Count);
 
-            Console.WriteLine("End of the Test");
+            foreach (var keyvaluePair in expectedDict)
+            {
+                Debug.Assert(keyvaluePair.Value == dict[keyvaluePair.Key]);
+            }
+
+            Dictionary<string, int> numerators = new Dictionary<string, int>
+            {
+                { "a", 53 },
+                { "b", -14 },
+                { "c", 5 },
+                { "d", 235 },
+                { "g", 1 },
+            };
+            Dictionary<string, int> denominators = new Dictionary<string, int>
+            {
+                { "a", 77 },
+                { "b", 235 },
+                { "c", -3 },
+                { "d", 121 },
+                { "e", 8 },
+                { "f", -621 },
+            };
+
+            Dictionary<string, decimal> result = Lab9.MergeDictionaries(numerators, denominators);
+            Dictionary<string, decimal> expectedResult = new Dictionary<string, decimal>
+            {
+                { "a", 0.6883116883116883116883116883m },
+                { "b", 0.0595744680851063829787234043m },
+                { "c", 1.6666666666666666666666666667m },
+                { "d", 1.9421487603305785123966942149m }
+            };
+
+            Console.WriteLine("-------------------------------------------------------------------------------");
+            printDictionary(result);
+
+            Debug.Assert(expectedResult.Count == result.Count);
+
+            foreach (var keyvaluePair in expectedResult)
+            {
+                Debug.Assert(keyvaluePair.Value == result[keyvaluePair.Key]);
+            }
         }
 
         private static void printDictionary<TKey, TValue>(Dictionary<TKey, TValue> dict)
