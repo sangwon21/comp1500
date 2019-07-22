@@ -4,7 +4,7 @@ using System;
 
 namespace Assignment4
 {
-    class Arena
+    public class Arena
     {
         public Arena(string arenaName, uint capacity)
         {
