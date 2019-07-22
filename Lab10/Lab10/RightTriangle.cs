@@ -21,7 +21,6 @@ public class RightTriangle
         double thirdSide = Math.Sqrt(Height * Height + Width * Width);
         double perimeter = Width + Height + thirdSide;
         perimeter = (uint)(perimeter * 1000 + 0.5) / 1000.0;
-
         return perimeter;
     }
 
@@ -29,7 +28,6 @@ public class RightTriangle
     {
         double area = (Width * (double)Height) / 2;
         area = (uint)(area * 1000 + 0.5) / 1000.0;
-
         return area;
     }
 }
