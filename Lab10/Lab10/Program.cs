@@ -6,7 +6,9 @@ namespace Lab10
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Rectangle rectangle1 = new Rectangle(5, 5);
+
+            Console.WriteLine(rectangle1.Width);
         }
     }
 }
