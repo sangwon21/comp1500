@@ -10,6 +10,9 @@
             AttackStat = attack;
             DefenseStat = defense;
         }
+        private int mHealth;
+        private int mAttack;
+        private int mDefense;
 
         public string Name
         {
@@ -23,17 +26,61 @@
 
         public int Health
         {
-            get; private set;
+            get
+            {
+                return mHealth;
+            }
+            private set
+            {
+                if(value >= 0)
+                {
+                    mHealth = value;
+                }
+                else
+                {
+                    mHealth = 0;
+                }
+                
+            }
         }
 
         public int AttackStat
         {
-            get; private set;
+            get
+            {
+                return mAttack;
+            }
+            private set
+            {
+                if (value >= 0)
+                {
+                    mAttack = value;
+                }
+                else
+                {
+                    mAttack = 0;
+                }
+                
+            }
         }
 
         public int DefenseStat
         {
-            get; private set;
+            get
+            {
+                return mDefense;
+            }
+            private set
+            {
+                if(value > 0)
+                {
+                    mDefense = value;
+                }
+                else
+                {
+                    mDefense = 0;
+                }
+            }
         }
 
         public void TakeDamage(int amount)
@@ -44,16 +91,20 @@
         public void Attack(Monster otherMonster)
         {
             int basicAttack = AttackStat - otherMonster.DefenseStat;
+            if(basicAttack < 1)
+            {
+                basicAttack = 1;
+            }
 
-            if(otherMonster.ElementType == ElementType || ((ElementType == EElementType.Water ||ElementType == EElementType.Ground) 
-                && (otherMonster.ElementType == EElementType.Water || otherMonster.ElementType == EElementType.Ground)))
+            if(otherMonster.ElementType == ElementType || ((ElementType == EElementType.Water ||ElementType == EElementType.Earth) 
+                && (otherMonster.ElementType == EElementType.Water || otherMonster.ElementType == EElementType.Earth)))
             {
                 otherMonster.Health -= basicAttack;
                 return;
             }
             else if((ElementType == EElementType.Fire && otherMonster.ElementType == EElementType.Wind) || (ElementType == EElementType.Water && otherMonster.ElementType == EElementType.Fire)
-                || (ElementType == EElementType.Ground && otherMonster.ElementType == EElementType.Fire) || 
-                (ElementType == EElementType.Wind && (otherMonster.ElementType == EElementType.Water || otherMonster.ElementType == EElementType.Ground)))
+                || (ElementType == EElementType.Earth && otherMonster.ElementType == EElementType.Fire) || 
+                (ElementType == EElementType.Wind && (otherMonster.ElementType == EElementType.Water || otherMonster.ElementType == EElementType.Earth)))
             {
                 double changedAttack = basicAttack * 1.5;
                 otherMonster.Health -= (int)changedAttack;

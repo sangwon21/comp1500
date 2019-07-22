@@ -5,6 +5,6 @@
         Fire,
         Water,
         Wind,
-        Ground
+        Earth
     }
 }

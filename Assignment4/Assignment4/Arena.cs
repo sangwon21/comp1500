@@ -10,6 +10,9 @@ namespace Assignment4
         {
             ArenaName = arenaName;
             Capacity = capacity;
+            Turns = 0;
+            MonsterCount = 0;
+            mMonsters = new List<Monster>();
         }
 
         public uint Capacity
@@ -54,8 +57,45 @@ namespace Assignment4
                 if(mMonsters.Count <= Capacity)
                 {
                     mMonsters.Add(created);
+                    MonsterCount += 1;
                 }
             }
+        }
+
+        public void GoToNextTurn()
+        {
+            if(mMonsters.Count <= 1)
+            {
+                return;
+            }
+
+            for(int i = 0; i < mMonsters.Count; i++)
+            {
+                mMonsters[i].Attack(mMonsters[(int)((i + 1) % mMonsters.Count)]);
+                if(mMonsters[(int)((i + 1) % mMonsters.Count)].Health == 0)
+                {
+                    mMonsters.RemoveAt((int)((i + 1) % mMonsters.Count));
+                }
+            }
+            Turns++;
+        }
+
+        public Monster GetHealthiest()
+        {
+            if (mMonsters.Count == 0)
+            {
+                return null;
+            }
+            Monster returnMonster = mMonsters[0];
+
+            for (int i = 1; i < mMonsters.Count; i++)
+            {
+                if(returnMonster.Health < mMonsters[i].Health)
+                {
+                    returnMonster = mMonsters[i];
+                }
+            }
+            return returnMonster;
         }
     }
 }
