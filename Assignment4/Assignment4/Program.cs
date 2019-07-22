@@ -43,8 +43,7 @@ namespace Assignment4
 
             arena.LoadMonsters("monsters.txt");
 
-            Debug.Assert(arena.MonsterCount == 6);
-            Debug.Assert(arena.GetHealthiest().Name == "MyMonster5");
+            Debug.Assert(arena.MonsterCount == 2);
 
             arena.GoToNextTurn();
             arena.GoToNextTurn();

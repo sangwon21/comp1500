@@ -39,25 +39,28 @@ namespace Assignment4
 
         public void LoadMonsters(string filePath)
         {
-            string[] monsters = File.ReadAllLines(filePath);
-            foreach(var monster in monsters)
+            if (File.Exists(filePath))
             {
-                string[] attribute = monster.Split(',');
-                string name = attribute[0];
-                EElementType elementType;
-                int health;
-                int attackStat;
-                int defenseStat;
-                Enum.TryParse(attribute[1], out elementType);
-                int.TryParse(attribute[2], out health);
-                int.TryParse(attribute[3], out attackStat);
-                int.TryParse(attribute[4], out defenseStat);
-
-                Monster created = new Monster(name, elementType, health, attackStat, defenseStat);
-                if(mMonsters.Count <= Capacity)
+                string[] monsters = File.ReadAllLines(filePath);
+                foreach (var monster in monsters)
                 {
-                    mMonsters.Add(created);
-                    MonsterCount += 1;
+                    string[] attribute = monster.Split(',');
+                    string name = attribute[0];
+                    EElementType elementType;
+                    int health;
+                    int attackStat;
+                    int defenseStat;
+                    Enum.TryParse(attribute[1], out elementType);
+                    int.TryParse(attribute[2], out health);
+                    int.TryParse(attribute[3], out attackStat);
+                    int.TryParse(attribute[4], out defenseStat);
+
+                    Monster created = new Monster(name, elementType, health, attackStat, defenseStat);
+                    if (mMonsters.Count < Capacity)
+                    {
+                        mMonsters.Add(created);
+                        MonsterCount += 1;
+                    }
                 }
             }
         }
@@ -75,6 +78,7 @@ namespace Assignment4
                 if(mMonsters[(int)((i + 1) % mMonsters.Count)].Health == 0)
                 {
                     mMonsters.RemoveAt((int)((i + 1) % mMonsters.Count));
+                    MonsterCount--;
                 }
             }
             Turns++;
