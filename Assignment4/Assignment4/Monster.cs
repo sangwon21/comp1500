@@ -32,7 +32,7 @@
             }
             private set
             {
-                if(value >= 0)
+                if (value >= 0)
                 {
                     mHealth = value;
                 }
@@ -40,7 +40,7 @@
                 {
                     mHealth = 0;
                 }
-                
+
             }
         }
 
@@ -60,7 +60,7 @@
                 {
                     mAttack = 0;
                 }
-                
+
             }
         }
 
@@ -72,7 +72,7 @@
             }
             private set
             {
-                if(value > 0)
+                if (value > 0)
                 {
                     mDefense = value;
                 }
@@ -91,19 +91,19 @@
         public void Attack(Monster otherMonster)
         {
             int basicAttack = AttackStat - otherMonster.DefenseStat;
-            if(basicAttack < 1)
+            if (basicAttack < 1)
             {
                 basicAttack = 1;
             }
 
-            if(otherMonster.ElementType == ElementType || ((ElementType == EElementType.Water ||ElementType == EElementType.Earth) 
+            if (otherMonster.ElementType == ElementType || ((ElementType == EElementType.Water || ElementType == EElementType.Earth)
                 && (otherMonster.ElementType == EElementType.Water || otherMonster.ElementType == EElementType.Earth)))
             {
                 otherMonster.Health -= basicAttack;
                 return;
             }
-            else if((ElementType == EElementType.Fire && otherMonster.ElementType == EElementType.Wind) || (ElementType == EElementType.Water && otherMonster.ElementType == EElementType.Fire)
-                || (ElementType == EElementType.Earth && otherMonster.ElementType == EElementType.Fire) || 
+            else if ((ElementType == EElementType.Fire && otherMonster.ElementType == EElementType.Wind) || (ElementType == EElementType.Water && otherMonster.ElementType == EElementType.Fire)
+                || (ElementType == EElementType.Earth && otherMonster.ElementType == EElementType.Fire) ||
                 (ElementType == EElementType.Wind && (otherMonster.ElementType == EElementType.Water || otherMonster.ElementType == EElementType.Earth)))
             {
                 double changedAttack = basicAttack * 1.5;
