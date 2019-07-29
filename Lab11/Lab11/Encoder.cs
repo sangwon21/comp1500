@@ -16,6 +16,10 @@ namespace Lab11
             for (int i = 0; i < input.Length; i++)
             {
                 int value = input.ReadByte();
+                if(value == ' ')
+                {
+                    continue;
+                }
                 if (previous == -1)
                 {
                     previous = value;
@@ -24,17 +28,17 @@ namespace Lab11
                 }
                 if (count == 255)
                 {
-                    output.WriteByte((byte)previous);
                     output.WriteByte((byte)count);
-                    count = 0;
+                    output.WriteByte((byte)previous);
+                    count = 1;
                     continue;
                 }
                 if (value != previous)
                 {
-                    output.WriteByte((byte)previous);
                     output.WriteByte((byte)count);
+                    output.WriteByte((byte)previous);
                     previous = value;
-                    count = 0;
+                    count = 1;
                     continue;
                 }
                 count++;
