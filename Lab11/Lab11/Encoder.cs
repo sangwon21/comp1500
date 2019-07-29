@@ -22,14 +22,7 @@ namespace Lab11
                     count++;
                     continue;
                 }
-                if (count == 255)
-                {
-                    output.WriteByte((byte)count);
-                    output.WriteByte((byte)previous);
-                    count = 1;
-                    continue;
-                }
-                if (value != previous)
+                if (value != previous || count == 255)
                 {
                     output.WriteByte((byte)count);
                     output.WriteByte((byte)previous);
