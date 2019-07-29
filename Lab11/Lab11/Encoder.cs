@@ -21,10 +21,6 @@ namespace Lab11
                 {
                     break;
                 }
-                if (value == ' ')
-                {
-                    continue;
-                }
                 if (previous == -1)
                 {
                     previous = value;
