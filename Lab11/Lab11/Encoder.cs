@@ -12,7 +12,7 @@ namespace Lab11
             }
 
             int previous = -1;
-            uint count = 0;
+            uint count = 1;
             for (int i = 0; i < input.Length; i++)
             {
                 int value = input.ReadByte();
