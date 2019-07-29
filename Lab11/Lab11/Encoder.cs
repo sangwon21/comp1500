@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System;
 
 namespace Lab11
 {
@@ -12,11 +13,15 @@ namespace Lab11
             }
 
             int previous = -1;
-            uint count = 1;
-            for (int i = 0; i < input.Length; i++)
+            uint count = 0;
+            for (int i = 0; i < input.Length; ++i)
             {
                 int value = input.ReadByte();
-                if(value == ' ')
+                if (value == -1)
+                {
+                    break;
+                }
+                if (value == ' ')
                 {
                     continue;
                 }
@@ -43,8 +48,14 @@ namespace Lab11
                 }
                 count++;
             }
+            output.WriteByte((byte)count);
+            output.WriteByte((byte)previous);
+
+            Console.WriteLine("+++++++++++++++++++++++++++++++++++");
             output.Seek(0, SeekOrigin.Begin);
             input.Seek(0, SeekOrigin.Begin);
+            input.Close();
+            output.Close();
             return true;
         }
 
